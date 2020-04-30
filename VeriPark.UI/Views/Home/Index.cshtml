@@ -1,0 +1,223 @@
+﻿@model VeriPark.UI.ViewModels.HomeViewModel
+@using VeriPark.UI.Models
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section styles {
+
+    <link href="~/Content/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="~/Content/css/plugins/chosen/chosen.css" rel="stylesheet">
+    <link href="~/Content/css/style.css" rel="stylesheet">
+
+    @*<link href="~/Content/css/plugins/chartist/chartist.min.css" rel="stylesheet">
+    <link href="~/Content/css/plugins/dataTables/datatables.min.css" rel="stylesheet">*@
+    <style type="text/css">
+
+        #ayarla {
+            height: 400px;
+        }
+    </style>
+}
+
+@section scripts {
+    
+    <!-- Data picker -->
+    <script src="~/Content/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <!-- Chosen -->
+    <script src="~/Content/js/plugins/chosen/chosen.jquery.js"></script>
+
+    @*<script src="~/Content/js/plugins/jeditable/jquery.jeditable.js"></script>
+    <script src="~/Content/js/plugins/dataTables/datatables.min.js"></script>
+    <script src="~/Content/js/plugins/c3/c3.min.js"></script>
+
+    <script src="~/Content/js/plugins/chartist/chartist.min.js"></script>
+  
+    <script src="~/Content/js/plugins/sparkline/jquery.sparkline.min.js"></script>*@
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#data_2 .input-group.date').datepicker({
+                startView: 1,
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true,
+                format: "dd/mm/yyyy"
+            });
+
+            var config = {
+                '.chosen-select': {},
+                '.chosen-select-deselect': { allow_single_deselect: true },
+                '.chosen-select-no-single': { disable_search_threshold: 10 },
+                '.chosen-select-no-results': { no_results_text: 'Oops, nothing found!' },
+                '.chosen-select-width': { width: "95%" }
+            }
+            for (var selector in config) {
+                $(selector).chosen(config[selector]);
+            }
+
+
+            function Hesapla() {
+                // debugger;
+                console.log("girdi");
+                var tarih1 = $('#CheckOutDate').val();
+                var tarih2 = $('#ReturnedDate').val();
+                var countries = $('#ddlCountries').val();
+
+                $('#myModal').empty();
+                $.ajax({
+                    url: "Hesapla",
+                    data: JSON.stringify({ CheckOutDate: tarih1, ReturnedDate: tarih2, Countries: countries }),//{ model: d }  { CheckOutDate: tarih1, ReturnedDate: tarih2 },,
+                    async: false,
+                    contentType: "application/json",
+                    method: "POST",
+                    success: function (e) {
+                        console.log("ajax başarılı");
+
+                        $('#myModal').append(e);
+                        $('#myModal').modal('show');
+                    },
+                    error: function (e) {
+
+                        console.log(e);
+                        console.log("ajax başarısız");
+                    }
+                });
+
+            }
+
+
+            $("#calculate").on("click", function () {
+                console.log("girdi");
+                var tarih1 = $('#CheckOutDate').val();
+                var tarih2 = $('#ReturnedDate').val();
+                var countries = $('#ddlCountries').val();
+
+                $('#myModal').empty();
+                $.ajax({
+                    url: "Hesapla",
+                    data: JSON.stringify({ CheckOutDate: tarih1, ReturnedDate: tarih2, Countries: countries }),//{ model: d }  { CheckOutDate: tarih1, ReturnedDate: tarih2 },,
+                    async: false,
+                    contentType: "application/json",
+                    method: "POST",
+                    success: function (e) {
+                        console.log("ajax başarılı");
+
+                        $('#myModal').append(e);
+                        $('#myModal').modal('show');
+                    },
+                    error: function (e) {
+
+                        console.log(e);
+                        console.log("ajax başarısız");
+                    }
+                });
+            });
+        });
+
+     
+    </script>
+}
+
+
+<section>
+
+    <div class="row">
+
+        <div class="col-lg-10">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Please Fill Elements <small></small></h5>
+                </div>
+                <div class="ibox-content">
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group" id="data_2">
+                                <label class="font-noraml">Checkout Date</label>
+
+                                <div class="input-group date">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    @Html.TextBoxFor(model => model.CheckOutDate, new { @class = "form-control", @id = "CheckOutDate" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group" id="data_2">
+                                <label class="font-noraml">Returned Date</label>
+
+                                <div class="input-group date">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    @Html.TextBoxFor(model => model.ReturnedDate, new { @class = "form-control", @id = "ReturnedDate" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="font-noraml">Country</label>
+                                <div class="input-group">
+                                    @Html.DropDownList("ddlCountries", null, new { @class = "chosen-select", @style = "width:500px", @tabindex = "2" });
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="text-center">
+                            <button type="button" class="btn btn-primary"  id="calculate">
+                                CALCULATE
+                            </button>
+                        </div>
+                    </div>
+
+
+
+                    <div id="myModal" class="modal inmodal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content animated bounceInRight">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <i class="fa fa-laptop modal-icon"></i>
+                                    <h4 class="modal-title">Check Booking Result</h4>
+
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group"><label>Business Day</label> <input type="email" class="form-control" id="businessday"></div>
+                                    <div class="form-group"><label>Penalty</label> <input type="email" class="form-control" id="penalty"></div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+

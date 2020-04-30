@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeriPark.UI", "VeriPark.UI\VeriPark.UI.csproj", "{C69D1196-69C7-4B1A-A06F-9AB6A91C612B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeriPark.Entities", "VeriPark.Entities\VeriPark.Entities.csproj", "{19808360-1719-4B7A-B122-4CA932DE6379}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeriPark.DAL", "VeriPark.DAL\VeriPark.DAL.csproj", "{F2BF9A44-70E2-4623-8F43-C090CDF1A499}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeriPark.Business", "VeriPark.Business\VeriPark.Business.csproj", "{D688DF3A-CFE4-49F6-84DF-36E08E4AE4B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeriPark.Service", "VeriPark.Service\VeriPark.Service.csproj", "{A313E0D7-DA27-40C1-A19B-87A392C37620}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VeriPark.Service.Host", "VeriPark.Service.Host\VeriPark.Service.Host.csproj", "{891220C2-6572-4A4D-87B2-11AC31F67A40}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C69D1196-69C7-4B1A-A06F-9AB6A91C612B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C69D1196-69C7-4B1A-A06F-9AB6A91C612B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C69D1196-69C7-4B1A-A06F-9AB6A91C612B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C69D1196-69C7-4B1A-A06F-9AB6A91C612B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19808360-1719-4B7A-B122-4CA932DE6379}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19808360-1719-4B7A-B122-4CA932DE6379}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19808360-1719-4B7A-B122-4CA932DE6379}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19808360-1719-4B7A-B122-4CA932DE6379}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2BF9A44-70E2-4623-8F43-C090CDF1A499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2BF9A44-70E2-4623-8F43-C090CDF1A499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2BF9A44-70E2-4623-8F43-C090CDF1A499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2BF9A44-70E2-4623-8F43-C090CDF1A499}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D688DF3A-CFE4-49F6-84DF-36E08E4AE4B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D688DF3A-CFE4-49F6-84DF-36E08E4AE4B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D688DF3A-CFE4-49F6-84DF-36E08E4AE4B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D688DF3A-CFE4-49F6-84DF-36E08E4AE4B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A313E0D7-DA27-40C1-A19B-87A392C37620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A313E0D7-DA27-40C1-A19B-87A392C37620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A313E0D7-DA27-40C1-A19B-87A392C37620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A313E0D7-DA27-40C1-A19B-87A392C37620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{891220C2-6572-4A4D-87B2-11AC31F67A40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{891220C2-6572-4A4D-87B2-11AC31F67A40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{891220C2-6572-4A4D-87B2-11AC31F67A40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{891220C2-6572-4A4D-87B2-11AC31F67A40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7B361D1-F45D-4725-A53D-779A016F8541}
+	EndGlobalSection
+EndGlobal
